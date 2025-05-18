@@ -39,7 +39,7 @@ const ProductList = () => {
   }, [response, dispatch]);
 
   if (loading) return (
-    <div className="container mx-auto h-screen flex items-center justify-center"><Loader /></div>
+    <div className="container mx-auto h-80 flex items-center justify-center"><Loader /></div>
   )
   if (error) return <p>Error loading products: {error}</p>;
 
@@ -61,15 +61,15 @@ const ProductList = () => {
             {products && products.map((product, index) => {
 
               const { id, name, price, categoryName } = product;
-      
+
               return (
-                <tr 
-                  key={index} 
-                  className="hover hover:cursor-pointer" 
-                  id={id} 
+                <tr
+                  key={index}
+                  className="hover hover:cursor-pointer"
+                  id={id}
                   onClick={handleProductDetails}
                 >
-                  <td>{index +1}</td>
+                  <td>{index + 1}</td>
                   <td>{id} </td>
                   <td>{name}</td>
                   <td>$ {price.toFixed(2)}</td>
@@ -94,7 +94,7 @@ const ProductList = () => {
           onClick={() => navigate(`/product/add`)}
         />
       </div>
-      
+
     </>
   )
 }

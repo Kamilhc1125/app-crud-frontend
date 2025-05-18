@@ -12,7 +12,7 @@ const CategoryList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.category.categories);
-  
+
   const { response, error, loading, fetchData } = useAxios();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const CategoryList = () => {
   }, [response, dispatch]);
 
   if (loading) return (
-    <div className="container mx-auto h-screen flex items-center justify-center"><Loader /></div>
+    <div className="container mx-auto h-80 flex items-center justify-center"><Loader /></div>
   )
 
   if (error) return <p>Error loading categories: {error}</p>;
@@ -46,7 +46,7 @@ const CategoryList = () => {
             </thead>
             <tbody>
               {categories && categories.map((item, index) => {
-                const {id, name } = item;
+                const { id, name } = item;
                 return (
                   <tr key={index} className="hover hover:cursor-pointer" id={id}>
                     <td>{id}</td>
